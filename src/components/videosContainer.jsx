@@ -1,3 +1,4 @@
+import { Colors } from "../colors";
 import { MyCarousel } from "./carousel";
 
 export const VideosContainer = ({ listVideos }) => {
@@ -5,7 +6,7 @@ export const VideosContainer = ({ listVideos }) => {
 
     // const videosFiltrados = listVideos.filter(video => video.category === categoriaDeseada);
     return(
-        <>
+        <div style={{backgroundColor:Colors.blackdark,display:"flex", flexDirection:"column"}}>
             {
                 categoriasUnicas.map((category,index) =>{
                     return(
@@ -13,6 +14,6 @@ export const VideosContainer = ({ listVideos }) => {
                     )
                 })
             }
-        </>
+        </div>
     )
 }
