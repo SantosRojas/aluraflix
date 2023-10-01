@@ -2,18 +2,6 @@ import { Colors } from "../colors";
 
 export const ListVideos = [
     {   
-        "title":"Latina",
-        "url":"https://live-latinav2-mdstrm.secure.footprint.net/live-stream-mp/d1aden84nxx8u4/3330943a0248407faa8c6f5f5c874fa4/5ce7109c7398b977dc0744cd/index.m3u8",
-        "category":"iptv",
-        "color":Colors.marketin
-    },
-    {   
-        "title":"Atv",
-        "url":"https://d3krdjs7is1y42.cloudfront.net/ATVpe/df13ed57843877b21ad969184ab6888f.sdp/playlist.m3u8",
-        "category":"iptv",
-        "color":Colors.marketin
-    },
-    {   
         "title":"Curso de Astro",
         "url":"https://www.youtube.com/watch?v=sOXW0ZnJxbQ",
         "category":"Front End",
@@ -58,12 +46,12 @@ export const ListVideos = [
     {   
         "title":"Kotlin Intermedio",
         "url":"https://www.youtube.com/watch?v=UaR7GSNACsM",
-        "category":"Back End",
+        "category":"Movil",
         "color": Colors.backend
     },
     {   
         "title":"Jetpack Compose",
-        "url":"https://www.youtube.com/watch?v=yVIGAvMO3bc&list=PLNdFk2_brsRclwvl8ruCo_q36jVbXcCCx",
+        "url":"https://www.youtube.com/watch?v=yVIGAvMO3bc",
         "category":"Movil",
         "color": Colors.movile
     },
@@ -75,7 +63,7 @@ export const ListVideos = [
     },
     {   
         "title":"Kivy con Python",
-        "url":"https://www.youtube.com/watch?v=tleQtdMcUTI&list=PL441cQBT_dHWDpz9C_fidhpFVe5O8bTWb",
+        "url":"https://www.youtube.com/watch?v=tleQtdMcUTI",
         "category":"Movil",
         "color": Colors.movile
     },

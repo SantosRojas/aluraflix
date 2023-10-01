@@ -31,4 +31,9 @@ export const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    #root{
+        display: flex;
+        flex-direction:column;
+        min-height:100vh;
+    }
 `

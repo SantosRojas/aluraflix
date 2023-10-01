@@ -1,14 +1,15 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import styled from 'styled-components';
 import { Colors } from '../colors';
+import VideoThumbnail from './thumbnail';
 
 const CardView = styled.div`
     height: 16rem;
     margin:0 .5rem;
-    border: .2rem solid ${({bdColor}) => bdColor};
+    border: .2rem solid ${({ bdcolor }) => bdcolor};
     border-radius: 5px;
     max-width: 27rem;
     overflow: hidden;
@@ -29,13 +30,13 @@ export const MyCarousel = ({ videos }) => {
     margin:.6rem .5rem;
     font-weight: 400;
     font-size: 3rem;
-    color:${Colors.graylighter}
+    color:${Colors.graylighter};
   `
 
   // Configura las opciones del carrusel
   const responsive = {
     desktopLarge: {
-      breakpoint: { max: 3000, min: 1024},
+      breakpoint: { max: 3000, min: 1024 },
       items: 4, // Número de elementos visibles en el escritorio
       partialVisibilityGutter: 50, // Espacio entre los elementos
     },
@@ -53,7 +54,7 @@ export const MyCarousel = ({ videos }) => {
       breakpoint: { max: 464, min: 0 },
       items: 1, // Número de elementos visibles en móvil
       partialVisibilityGutter: 20, // Espacio entre los elementos
-    },
+    }
   };
 
 
@@ -62,12 +63,13 @@ export const MyCarousel = ({ videos }) => {
       <CarouselTitle>{videos[0].category}</CarouselTitle>
       <Carousel responsive={responsive}>
         {videos.map((video, index) => (
-          <CardView key={index} bdColor ={video.color}>
-            <ReactPlayer
+          <CardView key={index} bdcolor={video.color}>
+            {/* <ReactPlayer
               url={video.url}
               controls
               width="100%"
-              height="100%" />
+              height="100%" /> */}
+            <VideoThumbnail url={video.url} />
           </CardView>
         ))}
       </Carousel>

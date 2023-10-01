@@ -6,7 +6,7 @@ export const VideosContainer = ({ listVideos }) => {
 
     // const videosFiltrados = listVideos.filter(video => video.category === categoriaDeseada);
     return(
-        <div style={{backgroundColor:Colors.blackdark,display:"flex", flexDirection:"column"}}>
+        <div style={{backgroundColor:Colors.blackdark,display:"flex", flexDirection:"column",width:"100%"}}>
             {
                 categoriasUnicas.map((category,index) =>{
                     return(
