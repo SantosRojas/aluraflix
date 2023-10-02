@@ -6,7 +6,7 @@ import { GlobalStyle } from "./globalStyle";
 import { Home } from "./pages/Home";
 import { NuevaCategoria } from "./pages/NuevaCategoria";
 import { NuevoVideo } from "./pages/NuevoVideo";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { MyProvider } from "./ContexProvider";
 
 function App() {
