@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logoAf from "../assets/images/logoaluraflix.png"
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
+import { useSetShowNV } from "../ContexProvider";
 
 const ContainerImage = styled.div`
     display:flex;
@@ -12,11 +13,11 @@ const ContainerImage = styled.div`
 `
 
 export const LogoAF = () => {
+    const navigate = useNavigate()
+    const setShowNv = useSetShowNV()
     return (
-        <ContainerImage>
-            <Link to={"/"}>
-                <img src={logoAf} alt="logo"/>
-            </Link>
+        <ContainerImage onClick={(e)=>{setShowNv(true); navigate("/");}}>
+            <img src={logoAf} alt="logo" />
         </ContainerImage>
     )
 }

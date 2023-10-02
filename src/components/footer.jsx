@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import { LogoAF } from "./logoalura"
 import { Colors } from "../colors"
-import { Link } from "react-router-dom"
+import {useNavigate } from "react-router-dom"
 import { MyBtn } from "./button"
+import { useSetShowNV, useShowNV } from "../ContexProvider"
 
 const ContainerLogo = styled.div`
     width: 100%;
@@ -40,21 +41,20 @@ const FooterContainer = styled.footer`
 
 
 export const Footer = () => {
-    const currentPath = window.location.pathname;
-    const showNV = currentPath==="/"
+    const showNV = useShowNV()
+    const setShowNV = useSetShowNV()
+    const navigate = useNavigate()
     return (
         <FooterContainer>
             <ContainerLogo>
                 <LogoAF />
             </ContainerLogo>
             <ContainerBtn>
-            {
-                showNV ? (
-                        <Link to="/nuevo-video" style={{ textDecoration: "none" }}>
-                            <MyBtn primary="true" style={{ width: "100%" }}>Nuevo Video</MyBtn>
-                        </Link>
-                ):<LogoAF />
-            }
+                {
+                    showNV ? (
+                        <MyBtn onClick={()=>{setShowNV(false);navigate("/nuevo-video")}} primary="true" style={{ width: "100%" }}>Nuevo Video</MyBtn>
+                    ):<LogoAF />
+                }
             </ContainerBtn>
         </FooterContainer>
     )

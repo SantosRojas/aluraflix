@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 import { Colors } from '../colors';
 import VideoThumbnail from './thumbnail';
+import { useSetVideoWatching } from '../ContexProvider';
 
 const CardView = styled.div`
     height: 16rem;
@@ -13,18 +14,17 @@ const CardView = styled.div`
     border-radius: 5px;
     max-width: 27rem;
     overflow: hidden;
+    &:hover{
+      cursor: pointer;
+    }
   `
 
 const CarouselContainer = styled.div`
   width: 95%;
   margin: 2rem auto;
 `
-
-export const MyCarousel = ({ videos }) => {
-
-  const CarouselTitle = styled.p`
+const CarouselTitle = styled.p`
     display: inline-block;
-    background-color: ${videos[0].color};
     border-radius: .2rem;
     padding: .4rem .9rem;
     margin:.6rem .5rem;
@@ -32,6 +32,9 @@ export const MyCarousel = ({ videos }) => {
     font-size: 3rem;
     color:${Colors.graylighter};
   `
+
+export const MyCarousel = ({ videos }) => {
+
 
   // Configura las opciones del carrusel
   const responsive = {
@@ -57,13 +60,19 @@ export const MyCarousel = ({ videos }) => {
     }
   };
 
+  const setVideoW = useSetVideoWatching()
+
+  const playVideo =(video) =>{
+    setVideoW(video)
+  }
+
 
   return (
     <CarouselContainer>
-      <CarouselTitle>{videos[0].category}</CarouselTitle>
+      <CarouselTitle style={{ backgroundColor: videos[0].color }}>{videos[0].category}</CarouselTitle>
       <Carousel responsive={responsive}>
         {videos.map((video, index) => (
-          <CardView key={index} bdcolor={video.color}>
+          <CardView key={index} bdcolor={video.color} onClick={(e)=> playVideo(video)}>
             {/* <ReactPlayer
               url={video.url}
               controls

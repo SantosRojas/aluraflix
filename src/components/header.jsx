@@ -1,9 +1,10 @@
 import hexToRgba from "hex-to-rgba";
 import styled from "styled-components";
 import { Colors } from "../colors";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate en lugar de useHistory
 import { LogoAF } from "./logoalura";
-import { MyBtn } from "./button";
+import { MyBtnH } from "./button";
+import { useSetShowNV, useShowNV } from "../ContexProvider";
 
 const MyHeader = styled.header`
     display: flex;
@@ -22,17 +23,20 @@ const MyHeader = styled.header`
 `
 
 export const Header = () => {
-    const currentPath = window.location.pathname;
-    const showNV = currentPath === "/"
+
+    const showNv = useShowNV()
+    const setShowNv = useSetShowNV()
+
+    // Obtén la función de navegación
+    const navigate = useNavigate();
 
     return (
         <MyHeader>
             <LogoAF />
             {
-                showNV && (
-                    <Link to="/nuevo-video">
-                        <MyBtn>Nuevo Video</MyBtn>
-                    </Link>
+                showNv && (
+                    // Utiliza navigate para redirigir al hacer clic en el botón
+                    <MyBtnH onClick={() => { setShowNv(false); navigate("/nuevo-video"); }}>Nuevo Video</MyBtnH>
                 )
             }
         </MyHeader>

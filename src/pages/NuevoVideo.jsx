@@ -5,10 +5,9 @@ import MyTextField from "../components/myInput"
 import { ContainerBtns, MyBtn, MyBtnD } from "../components/button"
 import styled from "styled-components"
 import { Title } from "../components/title"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import MySelect from "../components/myselect"
-import { useUpdateVideosContext, useVideosContext } from "../ContexProvider"
-import { Categories } from "../categories"
+import { useCategoriesContext, useSetShowNV, useUpdateVideosContext, useVideosContext } from "../ContexProvider"
 import { Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from "@mui/material"
 
 const BtnsPrimary = styled.div`
@@ -40,18 +39,23 @@ export const NuevoVideo = () => {
 
     const videos = useVideosContext()
     const updateVideos = useUpdateVideosContext()
+    const categories = useCategoriesContext()
+
+    const navigate = useNavigate()
+    const setShowNv = useSetShowNV()
 
 
 
     const AddVideo = (e) => {
+        e.preventDefault();
         const newVideo = {
             "title": title,
             "url": linkVideo,
             "color": category,
-            "category": Categories.find(element => element.value === category)?.label
+            "category": categories.find(element => element.value === category)?.label
         }
-        e.preventDefault();
         updateVideos([...videos, newVideo])
+        console.log(newVideo)
 
         handleClickOpen()
     }
@@ -66,6 +70,11 @@ export const NuevoVideo = () => {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleToHome = () => {
+        setShowNv(true)
+        navigate("/")
+    }
 
 
     return (
@@ -101,14 +110,12 @@ export const NuevoVideo = () => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <MyBtnD onClick={handleClose} st={{marginLeft:"1rem"}}>
+                    <MyBtnD onClick={handleClose} st={{ marginLeft: "1rem" }}>
                         Cancelar
                     </MyBtnD>
-                    <Link to={"/"}>
-                        <MyBtn primary = "true">
-                            Aceptar
-                        </MyBtn>
-                    </Link>
+                    <MyBtn onClick={handleToHome} primary="true">
+                        Aceptar
+                    </MyBtn>
                 </DialogActions>
             </Dialog>
         </>
