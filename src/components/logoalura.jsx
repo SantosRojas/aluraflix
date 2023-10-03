@@ -10,6 +10,9 @@ const ContainerImage = styled.div`
     height: 100%;
     padding: 1rem;
     box-sizing: border-box;
+    &:hover{
+        cursor: pointer;
+    }
 `
 
 export const LogoAF = () => {

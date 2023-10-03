@@ -62,9 +62,18 @@ export const MyCarousel = ({ videos }) => {
 
   const setVideoW = useSetVideoWatching()
 
-  const playVideo =(video) =>{
+  const playVideo = (video) => {
     setVideoW(video)
+    scrollToSection()
   }
+
+  function scrollToSection() {
+    const section = document.getElementById("video-watching");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
 
 
   return (
@@ -72,7 +81,7 @@ export const MyCarousel = ({ videos }) => {
       <CarouselTitle style={{ backgroundColor: videos[0].color }}>{videos[0].category}</CarouselTitle>
       <Carousel responsive={responsive}>
         {videos.map((video, index) => (
-          <CardView key={index} bdcolor={video.color} onClick={(e)=> playVideo(video)}>
+          <CardView key={index} bdcolor={video.color} onClick={(e) => playVideo(video)}>
             {/* <ReactPlayer
               url={video.url}
               controls

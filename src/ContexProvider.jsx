@@ -46,7 +46,8 @@ export const MyProvider = ({ children }) => {
       "title": "Curso de Astro",
       "url": "https://www.youtube.com/watch?v=sOXW0ZnJxbQ",
       "category": "Front End",
-      "color": Colors.frontend
+      "color": Colors.frontend,
+      "description":"Astro es un generador de sitios web estáticos, es decir sitios web que en su mayoría están conformados por solo archivos como HTML, CSS, Javascript, Imágenes y contenido similar. "
     }
   )
 
