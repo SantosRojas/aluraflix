@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/aluraflix/static/css/main.98e4d4fe.css",
-    "main.js": "/aluraflix/static/js/main.8abf965e.js",
+    "main.js": "/aluraflix/static/js/main.ff1931c5.js",
     "static/js/787.a582c3f2.chunk.js": "/aluraflix/static/js/787.a582c3f2.chunk.js",
     "static/media/revicons.eot": "/aluraflix/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/aluraflix/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/aluraflix/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/aluraflix/index.html",
     "main.98e4d4fe.css.map": "/aluraflix/static/css/main.98e4d4fe.css.map",
-    "main.8abf965e.js.map": "/aluraflix/static/js/main.8abf965e.js.map",
+    "main.ff1931c5.js.map": "/aluraflix/static/js/main.ff1931c5.js.map",
     "787.a582c3f2.chunk.js.map": "/aluraflix/static/js/787.a582c3f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98e4d4fe.css",
-    "static/js/main.8abf965e.js"
+    "static/js/main.ff1931c5.js"
   ]
 }
